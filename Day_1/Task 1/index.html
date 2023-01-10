@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <title>Day_1_Task_1</title>
+    <style>
+      body {
+        background-color: white;
+      }
+      .main {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+     row-gap: 50px;
+     margin-top:50px;
+        flex-direction: column;
+      }
+      .main-2 {
+        display: flex;
+        width: 30%;
+        flex-direction: column;
+        row-gap: 5px;
+      }
+      
+    </style>
+  </head>
+
+  <body>
+
+      <div class="main">
+
+        <form class="main" id="myform">
+        <div class="main-2" style="padding:30px;">
+          <label for="exampleInputEmail1" class="form-label">Name</label>
+
+          <input
+            type="text"
+            class="form-control"
+            width="50%;"
+            id="name_field"
+            onblur="check_validity(0)"
+            onkeyup="check_validity(0)"
+          />
+          <h6 style="color: red" id="name_text"></h6>
+          <label for="exampleInputEmail1" class="form-label" id="address_field"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            onkeypress="check_validity(1)"
+            onkeyup="check_validity(1)"
+      
+          />
+          <h6 style="color: red" id="email_text"></h6>
+          <label for="exampleInputEmail1" class="form-label" id="pass_field"
+            >Passowrd</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            onkeypress="check_validity(2)"
+            onkeyup="check_validity(2)"
+          />
+          <h6 style="color: red" id="pass_text"></h6>
+
+          <input
+            type="button"
+            type="submit"
+            id="mybtn"
+            value="Submit"
+            class="btn btn-primary"
+          />
+        </div>
+    </form>
+    
+    <div class="alert alert-primary" role="alert" style="width:30%; display:none;" id="myalert" style="margin-top:60px; text-align:center;" >
+        <h5>Name: <span id="alert_name"></span></h5>
+        <h5>Email: <span id="alert_email"></span></h5>
+
+      </div>
+      </div>
+   
+    
+  </body>
+  <script>
+    var flag = 1;
+
+    const a = document
+      .getElementById("mybtn")
+      .addEventListener("click", function () {
+        check_validity("btnclicked");
+      });
+
+    function check_validity(ee) {
+      const b = document.getElementsByTagName("input");
+      var n = document.getElementById("name_text");
+      var e = document.getElementById("email_text");
+      var p = document.getElementById("pass_text");
+
+      if (ee == 0) {
+        if (b[0].value == "") {
+          n.innerHTML = "Please enter name";
+        } else {
+          n.innerHTML = "";
+        }
+      }
+      if (ee == 1) {
+        if (b[1].value == "") {
+          e.innerHTML = "Please enter email";
+        } else {
+          e.innerHTML = "";
+        }
+      }
+
+      if (ee == 2) {
+        if (b[2].value == "") {
+          p.innerHTML = "Please enter password";
+        } else {
+          p.innerHTML = "";
+        }
+      }
+
+      if (ee == "btnclicked") {
+        if (b[0].value == "") {
+          n.innerHTML = "Please enter name";
+          flag=0;
+        } else {
+          n.innerHTML = "";
+          flag=1;
+
+        }
+
+        if (b[1].value == "") {
+          e.innerHTML = "Please enter email";
+          flag=0;
+        } else {
+          e.innerHTML = "";
+          flag=1;
+        }
+        if (b[2].value == "") {
+          p.innerHTML = "Please enter password";
+          flag=0;
+        } else {
+          p.innerHTML = "";
+          flag=1;
+        }
+
+        if(flag==1)
+        {
+            document.getElementById("myalert").style.display="block";
+            document.getElementById("alert_name").innerHTML =b[0].value;
+            document.getElementById("alert_email").innerHTML =b[1].value;
+            document.getElementById("myform").reset();
+      
+        }
+        else
+        {
+            document.getElementById("myalert").style.display="none";
+        }
+      }
+    }
+  </script>
+</html>
