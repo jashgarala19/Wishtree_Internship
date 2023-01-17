@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Call in JS</title>
+  </head>
+  <body>
+    <script>
+      let name = {
+        firstName: "Jash",
+        lastName: "Garala",
+        printName: function () {
+          console.log(this.firstName + " " + this.lastName);
+        },
+      };
+
+      let name2 = {
+        firstName: "Jeet",
+        lastName: "Garala",
+      };
+
+      name.printName();
+
+      //function borrowing
+      name.printName.call(name2);
+
+      //With call(), an object can use a method belonging to another object.
+
+      //example 2
+
+      let name3 = {
+        firstName: "Jash",
+        lastName: "Garala",
+      };
+
+      let name4 = {
+        firstName: "Jeet",
+        lastName: "Garala",
+      };
+
+      function printName2(n) {
+        console.log(this.firstName + " " + this.lastName + " " + n);
+      }
+
+      printName2.call(name3, 98, "CE");
+      printName2.call(name4, 7, "Mecha");
+
+      //apply
+      printName2.apply(name3, [98, "CE"]);
+
+      //bind
+      //return a method wich can be called later
+      //It is basically used to keep a copy of a method and use it later
+
+      //Diffrence btwn call and bind is that bind gives u  a copy  and invoke it later rather than directly invoking it
+
+      const a = printName2.bind(name2, 98, "CE"); //return a function
+      console.log(a);
+      a();
+
+
+      /*
+Call - Invoke a function directly  by passing  the refrence  
+Apply - same as call but takes 2nd argument as an array wich needs to be passed 
+Bind -Doesn't directly invoke the function but gives u the copy of exactly same method wich can be invoked later
+*/
+
+    </script>
+  </body>
+</html>
+

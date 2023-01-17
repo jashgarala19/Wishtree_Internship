@@ -1,0 +1,4 @@
+Tasks
+1:Bind method example
+2.Apply method example
+3.Closure method example

@@ -1,0 +1,10 @@
+body{
+ background-color: red;
+}
+
+.myform
+{
+    display:flex;
+    flex-direction:column;
+    width:20%;
+}
