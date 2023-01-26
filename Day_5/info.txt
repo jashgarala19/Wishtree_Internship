@@ -1,0 +1,2 @@
+To create a .exe file use pkg package
+so that you can use your yarg script and run it anywhere

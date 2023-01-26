@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jashgarala19/Internhsip_Wishtree#readme",
   "dependencies": {
+    "pkg": "^5.8.0",
     "yargs": "^17.6.2"
   }
 }
